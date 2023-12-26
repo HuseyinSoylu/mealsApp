@@ -1,13 +1,17 @@
-'use client';
+import React from "react";
+import { useFormStatus } from "react-dom";
 
-import { useFormStatus } from 'react-dom';
-
-export default function MealsFormSubmit() {
+const MealsFormSubmit = () => {
   const { pending } = useFormStatus();
 
   return (
-    <button disabled={pending}>
-      {pending ? 'Submitting...' : 'Share Meal'}
+    <button
+      disabled={pending}
+      className={pending ? "submitting" : "not-submitting"}
+    >
+      {pending ? "Submitting..." : "Share Meal"}
     </button>
   );
-}
+};
+
+export default MealsFormSubmit;
